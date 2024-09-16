@@ -4,55 +4,55 @@ __lua__
 --overall scripts
 
 function _init()
-		player={
-				x=10,
-				y=63,
-				sprite=1,
-				running=false,
-				idle=true,
-				fliph=false
-		}
+	player={
+		x=10,
+		y=63,
+		sprite=1,
+		running=false,
+		idle=true,
+		fliph=false
+	}
 end
 
 function animate()
-		if player.running then
-				if player.sprite==1 then
-						player.sprite=2
-				else
-					player.sprite=1
-				end
+	if player.running then
+		if player.sprite==1 then
+			player.sprite=2
+		else
+			player.sprite=1
 		end
+	end
 end
 
 function run()
-  player.idle=false
-		if btn(➡️) then
-				player.x+=1
-				player.running=true
-				player.fliph=false
-				animate()
-		elseif btn(⬅️) then
-				player.x-=1
-				player.running=true
-				player.fliph=true
-				animate()
-		else
-			 player.running=false
-			 player.idle=true
-		end
+ player.idle=false
+	if btn(➡️) then
+		player.x+=1
+		player.running=true
+		player.fliph=false
+		animate()
+	elseif btn(⬅️) then
+		player.x-=1
+		player.running=true
+		player.fliph=true
+		animate()
+	else
+	 player.running=false
+	 player.idle=true
+	end
 end
 
 function _update()
-		run()
+	run()
 end
 
 function _draw()
- 	cls()
- 	spr(player.sprite,player.x,player.y,1,1,player.fliph)
-		print(player.sprite)
-		print(player.running)
-		print(player.idle)
-		print(player.fliph)
+ cls()
+ spr(player.sprite,player.x,player.y,1,1,player.fliph)
+	print(player.sprite)
+	print(player.running)
+	print(player.idle)
+	print(player.fliph)
 end
 __gfx__
 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
